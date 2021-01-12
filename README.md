@@ -13,5 +13,5 @@ This program is Minecraft BE Toggle Sprinter with C Language.
 - Variable Debug with exit
 
 ## API License
-This Program uses the GPL-1.0 Open source license.
+This Program uses the GPL-2.0 Open source license.
 - License: [Click here](https://github.com/ProjectTL12345/BE_ToggleSprint/blob/main/LICENSE)
