@@ -1,7 +1,7 @@
 # BE_ToggleSprint-1.0v
 
-- [Program Info]()
-- [Program Feature]()
+- [Program Info](https://github.com/ProjectTL12345/BE_ToggleSprint#program-info)
+- [Program Feature](https://github.com/ProjectTL12345/BE_ToggleSprint#program-feature)
 
 ## Program Info
 This program is Minecraft BE Toggle Sprinter with C Language.
@@ -14,4 +14,4 @@ This program is Minecraft BE Toggle Sprinter with C Language.
 
 ## API License
 This Program uses the GPL-1.0 Open source license.
-- License: [Click here]()
+- License: [Click here](https://github.com/ProjectTL12345/BE_ToggleSprint/blob/main/LICENSE)
