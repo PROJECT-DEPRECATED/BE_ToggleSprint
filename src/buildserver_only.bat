@@ -1,0 +1,1 @@
+gcc main.c -o BE_ToggleSprint-1.0v_%build.counter%.exe
