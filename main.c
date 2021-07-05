@@ -14,6 +14,8 @@ int tab_open_count = 0;
 
 bool debug = false;
 
+char version[10] = "2.0.0";
+
 int count = 0;
 void logo();
 
@@ -27,14 +29,14 @@ void get_help_button() {
 }
 
 void boot_program() {
-    system("title=BE_ToggleSprint-1.0v");
+    system("title=BE_ToggleSprint-2.0.0");
     logo();
     Sleep(500);
     
     printf("BE Toggle Sprint Program\n");
     printf("\n");
     printf("Made by Project_TL\n");
-    printf("Version 1.0v\n");
+    printf("Version %s\n", version);
 
     Sleep(3000);
     system("mode con cols=70 lines=30");
