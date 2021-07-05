@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <windows.h>
+#include <stdbool.h>
 
-void color(int get_color);
+#include "textcolor.h"
 
 void debugging(
     bool debug_status,
@@ -14,72 +15,67 @@ void debugging(
     if (debug_status) { // Debug code
         system("cls");
 
-        color(10);
+        textcolor(10);
         printf("[Debug] Start report...\n\n"); // Report Start
         Sleep(2000);
 
-        color(15);
+        textcolor(15);
         printf("Start debug: boolean\n"); // Start status boolean
         Sleep(1000);
 
-        color(14);
+        textcolor(14);
         printf("Running Status: "); // Running
         
-        color(13);
+        textcolor(13);
         printf("%s\n", run_status ? "true" : "false");
         Sleep(2000);
 
-        color(14);
+        textcolor(14);
         printf("Toggle Status: "); // Toggle
 
-        color(13);
+        textcolor(13);
         printf("%s\n", toggle_status ? "true" : "false");
         Sleep(2000);
 
-        color(14);
+        textcolor(14);
         printf("Tab Status: "); // Tab
 
-        color(13);
+        textcolor(13);
         printf("%s\n", tab_status ? "true" : "false");
         Sleep(2000);
         
-        color(15);
+        textcolor(15);
         printf("\nEnd debug: boolean\n\n"); // End status boolean
         Sleep(1000);
         
         printf("Start debug: Counter\n"); // Start status counters
         Sleep(1000);
 
-        color(14);
+        textcolor(14);
         printf("Toggle Sprint Count: "); // Toggle Sprint
 
-        color(15);
+        textcolor(15);
         printf("%d\n", sprint_count);
         Sleep(1000);
 
-        color(14);
+        textcolor(14);
         printf("Enter Tab Count: "); // Tab
             
-        color(15);
+        textcolor(15);
         printf("%d\n", tab_count);
         Sleep(1000);
 
         printf("\nEnd debug: Counters\n"); // End status counter
         Sleep(1000);
 
-        color(12);
+        textcolor(12);
         printf("\n[Debug] Ending report...\n\n"); // Report End
 
-        color(14);
+        textcolor(14);
         printf("This counter is only using debugging purposes.");
         printf("\n");
 
-        color(15);
+        textcolor(15);
         system("pause");
     }
-}
-
-// Imported by textcolor.h
-void color(int get_color) {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), get_color);
 }

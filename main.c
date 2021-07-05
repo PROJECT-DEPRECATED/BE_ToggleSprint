@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <windows.h>
 
-#include "sendlogs.h"
+#include "sendlog.h"
 #include "debugging.h"
 
 bool running = true;
@@ -19,14 +19,14 @@ void logo();
 
 void get_help_button() {
     if (return_to_main) {
-        send_log("Insert: On Toggle Sprint", 14, true);
-        send_log("Delete: Off Toggle Sprint", 14, true);
-        send_log("Pause: Exit program and debugging", 14, true);
-        send_log("End: Exit program", 14, true);
+        logprintln(14, "Insert: On Toggle Sprint");
+        logprintln(14, "Delete: Off Toggle Sprint");
+        logprintln(14, "Pause: Exit program and debugging");
+        logprintln(14, "End: Exit program");
     }
 }
 
-int main(int argc, char **argv) {
+void boot_program() {
     system("title=BE_ToggleSprint-1.0v");
     logo();
     Sleep(500);
@@ -38,6 +38,10 @@ int main(int argc, char **argv) {
 
     Sleep(3000);
     system("mode con cols=70 lines=30");
+}
+
+int main(int argc, char **argv) {
+    boot_program();
 
     while (running) { // Start Program
         get_help_button();
@@ -46,13 +50,13 @@ int main(int argc, char **argv) {
         if (GetKeyState(VK_INSERT) < 0) {
             toggled = true;
             
-            send_log("[Sprint_Manager] ", 0, false);
-            send_log("Toggle Sprinting... ", 10, false);
-            send_log("Count: ", 14, false);
+            logprintf(0, "[Sprint_Manager] ");
+            logprintf(10, "Toggle Sprinting... ");
+            logprintf(14, "Count: ");
             printf("%d\n", count);
 
-            send_log("[Attention] If you want to off toggle sprint, You'll press keyboard \"Delete\" button.", 14, true);
-            send_log("[Attention] If you want to use tab(Creating Table, Furnace, etc...), You'll press keyboard \"E\" Button.", 14, true);
+            logprintln(14, "[Attention] If you want to off toggle sprint, You'll press keyboard \"Delete\" button.");
+            logprintln(14, "[Attention] If you want to use tab(Creating Table, Furnace, etc...), You'll press keyboard \"E\" Button.");
 
             while (toggled) { // Start Toggle
                 keybd_event(VK_CONTROL, 0, 0, 0);
@@ -61,9 +65,9 @@ int main(int argc, char **argv) {
                     tab_mode = true;
                     keybd_event(VK_CONTROL, 0, 0x0002, 0);
                     
-                    send_log("[Sprint_Manager] ", 0, false);
-                    send_log("Join the tab.. ", 10, false);
-                    send_log("Count: ", 14, false);
+                    logprintf(0, "[Sprint_Manager] ");
+                    logprintf(10, "Join the tab.. ");
+                    logprintf(14, "Count: ");
                     printf("%d\n", tab_open_count);
 
                     while (tab_mode) { // Tab mode
@@ -71,9 +75,9 @@ int main(int argc, char **argv) {
                         if (GetKeyState(VK_ESCAPE) < 0) {
                             tab_mode = false;
 
-                            send_log("[Sprint_Manager] ", 0, false);
-                            send_log("Quit the tab.. ", 10, false);
-                            send_log("Count: ", 14, false);
+                            logprintf(0, "[Sprint_Manager] ");
+                            logprintf(10, "Quit the tab.. ");
+                            logprintf(14, "Count: ");
                             printf("%d\n", tab_open_count);
                         }
                     }
@@ -88,9 +92,9 @@ int main(int argc, char **argv) {
             }
 
             system("cls");
-            send_log("[Sprint_Manager] ", 0, false);
-            send_log("Stoped Toggle Sprint. ", 12, false);
-            send_log("Count: ", 14, false);
+            logprintf(0, "[Sprint_Manager] ");
+            logprintf(12, "Stoped Toggle Sprint. ");
+            logprintf(14, "Count: ");
             printf("%d\n", count);
 
             printf("\n");
@@ -113,43 +117,43 @@ void logo() {
     printf("======================================================================================\n");
     
     printf("= ");
-    send_log("============     ======        ======        ======     ==            ============", 14, false);
+    logprintf(14, "============     ======        ======        ======     ==            ============");
     printf(" =\n");
     
     printf("= ");
-    send_log("============    ========      ========      ========    ==            ============", 14, false);
+    logprintf(14, "============    ========      ========      ========    ==            ============");
     printf(" =\n");
     
     printf("= ");
-    send_log("     ==       ==        ==  ==        ==  ==        ==  ==            ==          ", 14, false);
+    logprintf(14, "     ==       ==        ==  ==        ==  ==        ==  ==            ==          ");
     printf(" =\n");
 
     printf("= ");
-    send_log("     ==       ==        ==  ==        ==  ==        ==  ==            ==          ", 14, false);
+    logprintf(14, "     ==       ==        ==  ==        ==  ==        ==  ==            ==          ");
     printf(" =\n");
 
     printf("= ");
-    send_log("     ==       ==        ==  ==            ==            ==            ============", 14, false);
+    logprintf(14, "     ==       ==        ==  ==            ==            ==            ============");
     printf(" =\n");
 
     printf("= ");
-    send_log("     ==       ==        ==  ==     =====  ==            ==            ============", 14, false);
+    logprintf(14, "     ==       ==        ==  ==     =====  ==            ==            ============");
     printf(" =\n");
 
     printf("= ");
-    send_log("     ==       ==        ==  ==     =====  ==     =====  ==            ==          ", 14, false);
+    logprintf(14, "     ==       ==        ==  ==     =====  ==     =====  ==            ==          ");
     printf(" =\n");
     
     printf("= ");
-    send_log("     ==       ==        ==  ==        ==  ==        ==  ==            ==          ", 14, false);
+    logprintf(14, "     ==       ==        ==  ==        ==  ==        ==  ==            ==          ");
     printf(" =\n");
     
     printf("= ");
-    send_log("     ==         ========      ========      ========    ============  ============", 14, false);
+    logprintf(14, "     ==         ========      ========      ========    ============  ============");
     printf(" =\n");
     
     printf("= ");
-    send_log("     ==          ======        ======        ======     ============  ============", 14, false);
+    logprintf(14, "     ==          ======        ======        ======     ============  ============");
     printf(" =\n");
     
     printf("======================================================================================\n");
